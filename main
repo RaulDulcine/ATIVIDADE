@@ -1,0 +1,19 @@
+from services.estoque import executar_rota
+
+# POST - Adicionando produtos
+print(executar_rota("/produtos", "POST", {"nome": "Mouse", "quantidade": 10}))
+print(executar_rota("/produtos", "POST", {"nome": "Teclado", "quantidade": 5}))
+
+# GET - Listando todos os produtos
+print(executar_rota("/produtos", "GET"))
+
+# GET - Buscando produto por nome
+print(executar_rota("/produtos/buscar", "GET", {"nome": "Mouse"}))
+
+# PUT - Atualizando quantidade
+print(executar_rota("/produtos/atualizar", "PUT", {"nome": "Mouse", "quantidade": 20}))
+print(executar_rota("/produtos", "GET"))
+
+# DELETE - Removendo produto
+print(executar_rota("/produtos/remover", "DELETE", {"nome": "Teclado"}))
+print(executar_rota("/produtos", "GET"))
